@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos | SoleNation</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- MENÚ SUPERIOR UNIFICADO -->
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">SOLE<span>NATION</span></a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html" class="active">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="pedido.html" class="btn-nav">Hacer Pedido</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN CATÁLOGO -->
+    <section class="container section">
+        <h2 class="section-title">Catálogo de Zapatillas</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #555;">
+            Explora nuestra colección exclusiva de calzado deportivo y casual urbano.
+        </p>
+
+        <!-- FILTROS RÁPIDOS -->
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
+            <button class="btn-primary" onclick="filtrarProductos('todos')">Todos</button>
+            <button class="btn-secondary" style="color: #121212; border-color: #121212;" onclick="filtrarProductos('Deportiva')">Deportivas</button>
+            <button class="btn-secondary" style="color: #121212; border-color: #121212;" onclick="filtrarProductos('Casual')">Casuales</button>
+        </div>
+
+        <!-- GRID DE PRODUCTOS -->
+        <div class="grid-products" id="grid-productos">
+            
+            <div class="card-product" data-categoria="Deportiva">
+                <span class="badge">Deportiva</span>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Zapatilla Red">
+                <div class="card-body">
+                    <h3>SoleRunner Pro Red</h3>
+                    <p class="category">Categoría: Deportiva | Tallas: 39 - 43</p>
+                    <p class="price">S/ 299.90</p>
+                    <a href="pedido.html" class="btn-card">Solicitar Pedido</a>
+                </div>
+            </div>
+
+            <div class="card-product" data-categoria="Casual">
+                <span class="badge" style="background-color: #121212;">Casual</span>
+                <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?w=500" alt="Zapatilla Black">
+                <div class="card-body">
+                    <h3>UrbanFlex Black & White</h3>
+                    <p class="category">Categoría: Casual | Tallas: 38 - 42</p>
+                    <p class="price">S/ 249.90</p>
+                    <a href="pedido.html" class="btn-card">Solicitar Pedido</a>
+                </div>
+            </div>
+
+            <div class="card-product" data-categoria="Casual">
+                <span class="badge" style="background-color: #121212;">Casual</span>
+                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500" alt="Zapatilla White">
+                <div class="card-body">
+                    <h3>AirStreet White Classic</h3>
+                    <p class="category">Categoría: Casual | Tallas: 37 - 41</p>
+                    <p class="price">S/ 219.90</p>
+                    <a href="pedido.html" class="btn-card">Solicitar Pedido</a>
+                </div>
+            </div>
+
+            <div class="card-product" data-categoria="Deportiva">
+                <span class="badge">Deportiva</span>
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500" alt="Zapatilla Green">
+                <div class="card-body">
+                    <h3>ProBoost Neon Green</h3>
+                    <p class="category">Categoría: Deportiva | Tallas: 40 - 44</p>
+                    <p class="price">S/ 329.90</p>
+                    <a href="pedido.html" class="btn-card">Solicitar Pedido</a>
+                </div>
+            </div>
+
+            <div class="card-product" data-categoria="Casual">
+                <span class="badge" style="background-color: #121212;">Casual</span>
+                <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=500" alt="Zapatilla Vans Style">
+                <div class="card-body">
+                    <h3>RetroStreet Brown</h3>
+                    <p class="category">Categoría: Casual | Tallas: 38 - 43</p>
+                    <p class="price">S/ 199.90</p>
+                    <a href="pedido.html" class="btn-card">Solicitar Pedido</a>
+                </div>
+            </div>
+
+            <div class="card-product" data-categoria="Deportiva">
+                <span class="badge">Deportiva</span>
+                <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500" alt="Zapatilla Blue">
+                <div class="card-body">
+                    <h3>MaxVelocity Blue</h3>
+                    <p class="category">Categoría: Deportiva | Tallas: 39 - 42</p>
+                    <p class="price">S/ 279.90</p>
+                    <a href="pedido.html" class="btn-card">Solicitar Pedido</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <p>&copy; 2026 SoleNation. Todos los derechos reservados. | Proyecto de Desarrollo Multiplataforma</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

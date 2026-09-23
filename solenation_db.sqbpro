@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="solenation_db.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2631"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="categorias" custom_title="0" dock_id="1" table="4,10:maincategorias"/><dock_state state="000000ff00000000fd00000001000000020000020b0000020bfc0100000001fb000000160064006f0063006b00420072006f007700730065003101000000000000020b0000011800ffffff0000020b0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="categorias" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="78"/><column index="2" value="78"/><column index="3" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- 1. TABLA DE CATEGORÍAS
+CREATE TABLE IF NOT EXISTS categorias (
+    id_categoria INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    descripcion TEXT
+);
+
+-- 2. TABLA DE PRODUCTOS
+CREATE TABLE IF NOT EXISTS productos (
+    id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    id_categoria INTEGER NOT NULL,
+    precio REAL NOT NULL,
+    tallas_disponibles TEXT NOT NULL,
+    imagen_url TEXT,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+);
+
+-- 3. TABLA DE CLIENTES
+CREATE TABLE IF NOT EXISTS clientes (
+    id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombres TEXT NOT NULL,
+    apellidos TEXT NOT NULL,
+    correo TEXT UNIQUE NOT NULL,
+    telefono TEXT NOT NULL,
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 4. TABLA DE PEDIDOS
+CREATE TABLE IF NOT EXISTS pedidos (
+    id_pedido INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cliente INTEGER NOT NULL,
+    id_producto INTEGER NOT NULL,
+    talla INTEGER NOT NULL,
+    cantidad INTEGER NOT NULL,
+    monto_total REAL NOT NULL,
+    fecha_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
+    estado TEXT DEFAULT 'Pendiente',
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
+
+-- INSERCIÓN DE DATOS DE PRUEBA
+INSERT INTO categorias (nombre, descripcion) VALUES
+('Deportiva', 'Calzado diseñado para alto rendimiento y deportes'),
+('Casual', 'Calzado urbano para uso diario');
+
+INSERT INTO productos (nombre, id_categoria, precio, tallas_disponibles, imagen_url) VALUES
+('SoleRunner Pro Red', 1, 299.90, '39-43', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff'),
+('UrbanFlex Black &amp; White', 2, 249.90, '38-42', 'https://images.unsplash.com/photo-1552346154-21d32810aba3');
+
+INSERT INTO clientes (nombres, apellidos, correo, telefono) VALUES
+('Carlos', 'Mendoza', 'carlos@correo.com', '987654321');
+
+INSERT INTO pedidos (id_cliente, id_producto, talla, cantidad, monto_total) VALUES
+(1, 1, 41, 1, 299.90);</sql><current_tab id="0"/></tab_sql></sqlb_project>
