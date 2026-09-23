@@ -1,3 +1,6 @@
+// ⚠️ REEMPLAZA ESTA URL POR TU LINK REAL DE RENDER ⚠️
+const API_URL = "https://solenation-backend.onrender.com/";
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log("SoleNation App cargada correctamente.");
 
@@ -23,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 total: precio * cantidad
             };
 
-            fetch("http://127.0.0.1:5000/api/pedido", {
+            fetch(`${API_URL}/api/pedido`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
@@ -71,7 +74,7 @@ function calcularTotal() {
 
 // MOSTRAR PEDIDOS CON BOTONES DE EDITAR Y ELIMINAR
 function cargarPedidos() {
-    fetch("http://127.0.0.1:5000/api/pedidos")
+    fetch(`${API_URL}/api/pedidos`)
         .then(res => res.json())
         .then(pedidos => {
             const contenedor = document.getElementById('lista-pedidos');
@@ -99,7 +102,7 @@ function cargarPedidos() {
 // FUNCION PARA ELIMINAR PEDIDO (DELETE)
 function eliminarPedido(id) {
     if (confirm("¿Estás seguro de que deseas eliminar este pedido?")) {
-        fetch(`http://127.0.0.1:5000/api/pedidos/${id}`, {
+        fetch(`${API_URL}/api/pedidos/${id}`, {
             method: "DELETE"
         })
         .then(res => res.json())
@@ -115,7 +118,7 @@ function eliminarPedido(id) {
 function editarPedido(id, cantidadActual) {
     const nuevaCantidad = prompt("Ingresa la nueva cantidad de pares:", cantidadActual);
     if (nuevaCantidad !== null && nuevaCantidad > 0) {
-        fetch(`http://127.0.0.1:5000/api/pedidos/${id}`, {
+        fetch(`${API_URL}/api/pedidos/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ cantidad: parseInt(nuevaCantidad) })
