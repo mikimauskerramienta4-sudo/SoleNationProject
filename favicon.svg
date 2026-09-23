@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fondo circular negro -->
+  <circle cx="256" cy="256" r="240" fill="#121212"/>
+  
+  <!-- Letras SN centradas -->
+  <g font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="240" text-anchor="middle">
+    <!-- S en Blanco -->
+    <text x="175" y="335" fill="#FFFFFF">S</text>
+    <!-- N en Naranja SoleNation -->
+    <text x="335" y="335" fill="#FF3B00">N</text>
+  </g>
+</svg>
